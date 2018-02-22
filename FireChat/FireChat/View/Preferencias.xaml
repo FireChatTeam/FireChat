@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FireChat.Preferencias">
-    <ContentPage.Content>
-        <StackLayout>
-            
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="FireChat.Preferencias"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             Padding="20">
+    
+    <StackLayout>
+        <Label Text="Check all that applies" FontSize="Large" />
+        <controls:CheckBox DefaultText="Comedy" HorizontalOptions="FillAndExpand"  />
+        <controls:CheckBox DefaultText="Action" HorizontalOptions="FillAndExpand" />
+        <controls:CheckBox DefaultText="Science Fiction" HorizontalOptions="FillAndExpand" />
+
+    </StackLayout>
 </ContentPage>
