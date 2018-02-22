@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FireChat"
              x:Class="FireChat.MainPage">
+    <StackLayout>
 
 	<Label Text="Welcome to Xamarin.Forms!" 
            VerticalOptions="Center" 
@@ -10,5 +11,9 @@
     <Button Text="Ir a preferencias" VerticalOptions="Center" 
            HorizontalOptions="Center" 
            Clicked="OnButtonClicked"/>
+    <Button Text="Ir a listar chats" VerticalOptions="Center" 
+           HorizontalOptions="Center" 
+           Clicked="OnButtonClickedListarChats"/>
+    </StackLayout>
 
 </ContentPage>

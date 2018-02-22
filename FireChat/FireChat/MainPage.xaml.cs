@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FireChat.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,13 @@ namespace FireChat
            InitializeComponent();
         }
 
-        void OnButtonClicked(object sender, EventArgs e) { 
-        
+        void OnButtonClicked(object sender, EventArgs e)
+        { 
             Navigation.PushModalAsync(new Preferencias());
+        }
+        void OnButtonClickedListarChats(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new ListarChats());
         }
     }
 }
