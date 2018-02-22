@@ -23,5 +23,10 @@ namespace FireChat
         {
             Navigation.PushModalAsync(new ListarChats());
         }
+        void OnButtonClickedPreferencias(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Preferencias());
+        }
+        
     }
 }
