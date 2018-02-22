@@ -8,7 +8,7 @@
 	<Label Text="Welcome to Xamarin.Forms!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
-    <Button Text="Ir a preferencias" VerticalOptions="Center" 
+    <Button Text="Ir al chat!" VerticalOptions="Center" 
            HorizontalOptions="Center" 
            Clicked="OnButtonClicked"/>
     <Button Text="Ir a listar chats" VerticalOptions="Center" 

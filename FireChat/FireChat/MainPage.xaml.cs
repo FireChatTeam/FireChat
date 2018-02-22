@@ -15,9 +15,9 @@ namespace FireChat
            InitializeComponent();
         }
 
-        void OnButtonClicked(object sender, EventArgs e)
-        { 
-            Navigation.PushModalAsync(new Preferencias());
+        void OnButtonClicked(object sender, EventArgs e) { 
+        
+            Navigation.PushModalAsync(new Chat());
         }
         void OnButtonClickedListarChats(object sender, EventArgs e)
         {
