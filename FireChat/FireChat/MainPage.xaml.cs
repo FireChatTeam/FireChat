@@ -11,7 +11,12 @@ namespace FireChat
 	{
 		public MainPage()
 		{
-			InitializeComponent();
-		}
-	}
+           InitializeComponent();
+        }
+
+        void OnButtonClicked(object sender, EventArgs e) { 
+        
+            Navigation.PushModalAsync(new Preferencias());
+        }
+    }
 }
