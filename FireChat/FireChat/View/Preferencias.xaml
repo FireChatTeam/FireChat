@@ -4,12 +4,14 @@
              x:Class="FireChat.Preferencias"
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              Padding="20">
-    
+
     <StackLayout>
-        <Label Text="Check all that applies" FontSize="Large" />
-        <controls:CheckBox DefaultText="Comedy" HorizontalOptions="FillAndExpand"  />
-        <controls:CheckBox DefaultText="Action" HorizontalOptions="FillAndExpand" />
-        <controls:CheckBox DefaultText="Science Fiction" HorizontalOptions="FillAndExpand" />
+        <Label Text="Sonido y Vibración" FontSize="Large" />
+        <controls:CheckBox DefaultText="Vibracion" HorizontalOptions="FillAndExpand"  />
+        <controls:CheckBox DefaultText="Sonido" HorizontalOptions="FillAndExpand" />
+        <Label Text="Notificaciones" FontSize="Large" />
+        <controls:CheckBox DefaultText="Notificaciones emergentes" HorizontalOptions="FillAndExpand" />
+        <controls:CheckBox DefaultText="Notificaciones en la pantalla de inicio" HorizontalOptions="FillAndExpand" />
 
     </StackLayout>
 </ContentPage>
