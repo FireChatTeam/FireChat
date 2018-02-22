@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FireChat.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#FFF">
+            <Label Text="REGISTRO" 
+                       IsVisible="True" 
+                       Opacity="0.75"     
+                       HorizontalTextAlignment="Center"    
+                       TextColor="#FFF"                   
+                       BackgroundColor="#000"          
+                       FontSize="48"
+                       FontAttributes="Bold" />
+
+
+            <Label Text="Nombre"
+                   TextColor="#000"
+                   FontSize="24"
+                   Margin="16, 20, 0, 0"/>
+
+            <Editor
+                Text="Introduce tu nombre aquí"
+                TextColor="#000"
+                BackgroundColor="#CCC"
+                Margin="16, 0, 16, 0"
+                />
+
+            <Label Text="Correo"
+                   TextColor="#000"
+                   FontSize="24"
+                   Margin="16, 20, 0, 0"/>
+
+            <Editor
+                Text="Introduce tu nombre aquí"
+                TextColor="#000"
+                BackgroundColor="#CCC"
+                Margin="16, 0, 16, 0"
+                />
+
+            <Label Text="Contraseña"
+                   TextColor="#000"
+                   FontSize="24"
+                    Margin="16, 20, 16, 0"/>
+
+            <Editor
+                Text="Introduce tu contraseña aquí"
+                TextColor="#000"
+                BackgroundColor="#CCC"
+                Margin="16, 0, 16, 0"/>
+
+            <Label Text="Repite contraseña"
+                   TextColor="#000"
+                   FontSize="24"
+                    Margin="16, 20, 16, 0"/>
+
+            <Editor
+                Text="Introduce tu contraseña aquí"
+                TextColor="#000"
+                BackgroundColor="#CCC"
+                Margin="16, 0, 16, 0"/>
+
+
+
+
+            <Button
+                Text="Entrar"
+                VerticalOptions="FillAndExpand"
+                Margin="16, 20, 16, 20"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
