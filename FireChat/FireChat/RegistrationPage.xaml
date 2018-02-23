@@ -17,7 +17,7 @@
             <Label Text="Nombre"
                    TextColor="#000"
                    FontSize="24"
-                   Margin="16, 20, 0, 0"/>
+                   Margin="16, 16, 0, 0"/>
 
             <Editor
                 Text="Introduce tu nombre aquí"
@@ -29,7 +29,7 @@
             <Label Text="Correo"
                    TextColor="#000"
                    FontSize="24"
-                   Margin="16, 20, 0, 0"/>
+                   Margin="16, 16, 0, 0"/>
 
             <Editor
                 Text="Introduce tu nombre aquí"
@@ -41,7 +41,7 @@
             <Label Text="Contraseña"
                    TextColor="#000"
                    FontSize="24"
-                    Margin="16, 20, 16, 0"/>
+                    Margin="16, 16, 16, 0"/>
 
             <Editor
                 Text="Introduce tu contraseña aquí"
@@ -52,7 +52,7 @@
             <Label Text="Repite contraseña"
                    TextColor="#000"
                    FontSize="24"
-                    Margin="16, 20, 16, 0"/>
+                    Margin="16, 16, 16, 0"/>
 
             <Editor
                 Text="Introduce tu contraseña aquí"
@@ -60,11 +60,8 @@
                 BackgroundColor="#CCC"
                 Margin="16, 0, 16, 0"/>
 
-
-
-
             <Button
-                Text="Entrar"
+                Text="Registrar"
                 VerticalOptions="FillAndExpand"
                 Margin="16, 20, 16, 20"/>
         </StackLayout>

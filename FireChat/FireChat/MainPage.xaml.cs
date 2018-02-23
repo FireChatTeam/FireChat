@@ -27,6 +27,16 @@ namespace FireChat
         {
             Navigation.PushModalAsync(new Preferencias());
         }
-        
+
+        void OnButtonClickedLogin(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new LoginPage());
+        }
+
+        void OnButtonClickedRegistration(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new RegistrationPage());
+        }
+
     }
 }
