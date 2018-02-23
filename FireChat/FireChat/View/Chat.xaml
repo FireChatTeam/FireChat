@@ -21,19 +21,27 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            
-            <Entry Grid.Row="1" x:Name="_etMessage"/>
-
-            <Grid Grid.Row="2" RowSpacing="5">
+            <Grid Grid.Row="1" RowSpacing="5">
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="3" Text="Enviar" />
+                <Entry Grid.Column="0" x:Name="_etMessage"/>
+                <Image x:Name="send" 
+                   Source="send.png"
+                   Grid.Column="1"
+                       HeightRequest="40"
+                       WidthRequest="40">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Command="{Binding SendCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
-            
-            
+
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
