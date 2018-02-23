@@ -8,7 +8,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
-                            <Label Text = "Nombre chat" FontSize="24" AbsoluteLayout.LayoutBounds="0.25, 0.25, 40, 40"/>
+                            <Label Text = "{Binding Nombre}" FontSize="24" AbsoluteLayout.LayoutBounds="0.25, 0.25, 40, 40"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

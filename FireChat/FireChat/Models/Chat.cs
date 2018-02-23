@@ -4,8 +4,12 @@ using System.Text;
 
 namespace FireChat.Models
 {
-    class Chat
+    public class ChatModel
     {
         public String Nombre { get; set; }
+        public ChatModel(string Nombre)
+        {
+            this.Nombre = Nombre;
+        }
     }
 }
