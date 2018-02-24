@@ -4,14 +4,25 @@
              x:Class="FireChat.Preferencias"
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              Padding="20">
-
-    <StackLayout>
+    <TableView>
+        <TableView.Root>
+            <TableSection Title="Sonido y Vibración">
+                <SwitchCell Text="Vibracion" />
+                <SwitchCell Text="Sonido" On="True" />
+            </TableSection>
+            <TableSection Title="Notificaciones">
+                <SwitchCell Text="Notificaciones emergentes" On="True" />
+                <SwitchCell Text="Notificaciones en la pantalla de inicio" />
+            </TableSection>
+        </TableView.Root>
+    </TableView>
+    <!--<StackLayout>
         <Label Text="Sonido y Vibración" FontSize="Large" />
-        <controls:CheckBox DefaultText="Vibracion" HorizontalOptions="FillAndExpand"  />
+        <SwitchCell Text="Vibracion" />
         <controls:CheckBox DefaultText="Sonido" HorizontalOptions="FillAndExpand" />
         <Label Text="Notificaciones" FontSize="Large" />
         <controls:CheckBox DefaultText="Notificaciones emergentes" HorizontalOptions="FillAndExpand" />
         <controls:CheckBox DefaultText="Notificaciones en la pantalla de inicio" HorizontalOptions="FillAndExpand" />
 
-    </StackLayout>
+    </StackLayout>-->
 </ContentPage>
