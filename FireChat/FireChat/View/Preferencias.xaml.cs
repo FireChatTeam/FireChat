@@ -32,12 +32,23 @@ namespace FireChat
 
         private void Inicializar()
         {
+            
 
+            if (Application.Current.Properties.ContainsKey(VIBRACION))
+            {
+                Application.Current.Properties.TryGetValue(VIBRACION, out Object valor);
+                Boolean estaActivado = (Boolean)valor;
+                switchVibracion.On = estaActivado;
+            }
+            else
+            {
+                Application.Current.Properties.Add(VIBRACION, switchVibracion.On);
+            }
         }
 
         private void switchVibracionChanged(object sender, ToggledEventArgs e)
         {
-            
+            Application.Current.Properties[VIBRACION] = switchVibracion.On;
         }
         private void switchSonidoChanged(object sender, ToggledEventArgs e)
         {
