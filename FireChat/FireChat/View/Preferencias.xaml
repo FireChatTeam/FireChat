@@ -16,13 +16,5 @@
             </TableSection>
         </TableView.Root>
     </TableView>
-    <!--<StackLayout>
-        <Label Text="Sonido y Vibración" FontSize="Large" />
-        <SwitchCell Text="Vibracion" />
-        <controls:CheckBox DefaultText="Sonido" HorizontalOptions="FillAndExpand" />
-        <Label Text="Notificaciones" FontSize="Large" />
-        <controls:CheckBox DefaultText="Notificaciones emergentes" HorizontalOptions="FillAndExpand" />
-        <controls:CheckBox DefaultText="Notificaciones en la pantalla de inicio" HorizontalOptions="FillAndExpand" />
-
-    </StackLayout>-->
+   
 </ContentPage>
