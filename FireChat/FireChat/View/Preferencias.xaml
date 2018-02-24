@@ -4,6 +4,8 @@
              x:Class="FireChat.Preferencias"
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              Padding="20">
+    <StackLayout>
+    <Label Text="Preferencias" HorizontalTextAlignment="Center" FontSize="Large" />
     <TableView>
         <TableView.Root>
             <TableSection Title="Sonido y Vibración">
@@ -16,5 +18,5 @@
             </TableSection>
         </TableView.Root>
     </TableView>
-   
+    </StackLayout>
 </ContentPage>
