@@ -7,12 +7,12 @@
     <TableView>
         <TableView.Root>
             <TableSection Title="Sonido y Vibración">
-                <SwitchCell Text="Vibracion" />
-                <SwitchCell Text="Sonido" On="True" />
+                <SwitchCell x:Name="XswitchVibracion" Text="Vibracion" OnChanged="switchVibracionChanged" />
+                <SwitchCell x:Name="XswitchSonido" Text="Sonido" OnChanged="switchSonidoChanged" />
             </TableSection>
             <TableSection Title="Notificaciones">
-                <SwitchCell Text="Notificaciones emergentes" On="True" />
-                <SwitchCell Text="Notificaciones en la pantalla de inicio" />
+                <SwitchCell x:Name="XswitchNotEmergentes" Text="Notificaciones emergentes" OnChanged="switchNotificacionesEmergentesChanged" />
+                <SwitchCell x:Name="XswitchNotPantaInicio" Text="Notificaciones en la pantalla de inicio" OnChanged="switchNotificacionesPantInicioChanged" />
             </TableSection>
         </TableView.Root>
     </TableView>
