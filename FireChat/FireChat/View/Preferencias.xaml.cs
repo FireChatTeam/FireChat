@@ -44,23 +44,59 @@ namespace FireChat
             {
                 Application.Current.Properties.Add(VIBRACION, switchVibracion.On);
             }
+
+            if (Application.Current.Properties.ContainsKey(SONIDO))
+            {
+                Application.Current.Properties.TryGetValue(SONIDO, out Object valor);
+                Boolean estaActivado = (Boolean)valor;
+                switchSonido.On = estaActivado;
+            }
+            else
+            {
+                Application.Current.Properties.Add(SONIDO, switchSonido.On);
+            }
+
+            if (Application.Current.Properties.ContainsKey(NOTIFICACIONES_EMERGENTES))
+            {
+                Application.Current.Properties.TryGetValue(NOTIFICACIONES_EMERGENTES, out Object valor);
+                Boolean estaActivado = (Boolean)valor;
+                switchNotificacionesEmergentes.On = estaActivado;
+            }
+            else
+            {
+                Application.Current.Properties.Add(NOTIFICACIONES_EMERGENTES, switchNotificacionesEmergentes.On);
+            }
+
+            if (Application.Current.Properties.ContainsKey(NOTIFICACINOES_PANTALLA_INICIO))
+            {
+                Application.Current.Properties.TryGetValue(NOTIFICACINOES_PANTALLA_INICIO, out Object valor);
+                Boolean estaActivado = (Boolean)valor;
+                switchNotificacionesPantInicio.On = estaActivado;
+            }
+            else
+            {
+                Application.Current.Properties.Add(NOTIFICACINOES_PANTALLA_INICIO, switchNotificacionesPantInicio.On);
+            }
         }
 
         private void switchVibracionChanged(object sender, ToggledEventArgs e)
         {
             Application.Current.Properties[VIBRACION] = switchVibracion.On;
         }
+
         private void switchSonidoChanged(object sender, ToggledEventArgs e)
         {
-
+            Application.Current.Properties[SONIDO] = switchSonido.On;
         }
+
         private void switchNotificacionesEmergentesChanged(object sender, ToggledEventArgs e)
         {
-
+            Application.Current.Properties[NOTIFICACIONES_EMERGENTES] = switchSonido.On;
         }
+
         private void switchNotificacionesPantInicioChanged(object sender, ToggledEventArgs e)
         {
-
+            Application.Current.Properties[NOTIFICACINOES_PANTALLA_INICIO] = switchNotificacionesEmergentes.On;
         }
     }
 }
