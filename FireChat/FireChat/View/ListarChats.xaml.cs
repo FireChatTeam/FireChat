@@ -9,13 +9,13 @@ namespace FireChat.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListarChats : ContentPage
 	{
-        public ObservableCollection<ChatModel> chats { get; set; }
+        public ObservableCollection<Room> chats { get; set; }
         public ListarChats ()
 		{
-            chats = new ObservableCollection<ChatModel>();
+            chats = new ObservableCollection<Room>();
             for(int i = 0; i < 5; i++)
             {
-                chats.Add(new ChatModel("Chat " + (i + 1)));
+                chats.Add(new Room("Chat " + (i + 1)));
             }
 			InitializeComponent ();
             lstView.ItemsSource = chats;
