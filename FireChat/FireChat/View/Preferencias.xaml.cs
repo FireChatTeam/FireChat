@@ -91,12 +91,12 @@ namespace FireChat
 
         private void switchNotificacionesEmergentesChanged(object sender, ToggledEventArgs e)
         {
-            Application.Current.Properties[NOTIFICACIONES_EMERGENTES] = switchSonido.On;
+            Application.Current.Properties[NOTIFICACIONES_EMERGENTES] = switchNotificacionesEmergentes.On;
         }
 
         private void switchNotificacionesPantInicioChanged(object sender, ToggledEventArgs e)
         {
-            Application.Current.Properties[NOTIFICACINOES_PANTALLA_INICIO] = switchNotificacionesEmergentes.On;
+            Application.Current.Properties[NOTIFICACINOES_PANTALLA_INICIO] = switchNotificacionesPantInicio.On;
         }
     }
 }
