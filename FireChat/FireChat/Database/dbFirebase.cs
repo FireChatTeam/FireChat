@@ -74,5 +74,13 @@ namespace FireChat.Database
                     .PostAsync(_ch);
         }
 
+        public ObservableCollection<Message> subChat(string _roomKEY)
+        {
+
+            return fbClient.Child(CHATS + "/" + _roomKEY + "/" + MESSAGE)
+                           .AsObservable<Message>()
+                           .AsObservableCollection<Message>();
+        }
+
     }
 }

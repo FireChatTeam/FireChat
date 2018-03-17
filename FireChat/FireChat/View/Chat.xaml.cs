@@ -15,9 +15,7 @@ namespace FireChat.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Chat : ContentPage
 	{
-        private ObservableCollection<Message> mensajeList;
         private dbFirebase db = new dbFirebase();
-        private List<Message> list = new List<Message>();
         private string currentRoomKey;
 
 
@@ -27,23 +25,7 @@ namespace FireChat.View
 
             currentRoomKey = roomkey;
 
-            mensajeList = new ObservableCollection<Message>();
-            _lstChat.ItemsSource = mensajeList;
-
-            actualizarMensajes();
-        }
-
-        private void actualizarMensajes()
-        {
-            Task.Run(() =>
-            {
-                list = db.getMessageList(currentRoomKey).Result;
-                mensajeList.Clear();
-                foreach (Message m in list)
-                {
-                    mensajeList.Add(m);
-                }
-            });
+            _lstChat.ItemsSource = db.subChat(roomkey);
         }
 
         public void OnTap(Object sender, EventArgs args)
@@ -55,7 +37,6 @@ namespace FireChat.View
             Task.Run(async () =>
             {
                 await db.saveMessage(m, currentRoomKey);
-                actualizarMensajes();
             });
 
         }
