@@ -30,7 +30,9 @@ namespace FireChat.Database
             List<FirebaseObject< Room>> li= list.ToList();
             foreach(var i in li)
             {
-                listRooms.Add((Room)i.Object);
+                Room r = i.Object;
+                r.Key = i.Key;
+                listRooms.Add(i.Object);
             }
             return listRooms;
         }
