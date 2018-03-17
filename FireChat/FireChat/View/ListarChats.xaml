@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Button x:Name="buttonCrearChat" Text="Crear chat" Clicked="nuevoChat" IsVisible="true" ></Button>
-
+            <ActivityIndicator x:Name="activityIndicator" IsRunning="true"  />
             <ListView  x:Name="lstView" RowHeight="60" ItemSelected="OnSelection">
                 <ListView.ItemTemplate>
                     <DataTemplate>

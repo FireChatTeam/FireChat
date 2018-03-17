@@ -40,12 +40,17 @@ namespace FireChat.View
         {
             Task.Run(() =>
             {
+                //activityIndicator.IsVisible = true;
+               /// lstView.IsVisible = false;
+               
                 list = db.getRoomList().Result;
                 chats.Clear();
                 foreach (Room r in list)
                 {
                     chats.Add(r);
                 }
+                //activityIndicator.IsVisible = false;
+                //lstView.IsVisible = true;
             });
         }
 
