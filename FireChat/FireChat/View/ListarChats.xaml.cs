@@ -75,8 +75,8 @@ namespace FireChat.View
                     Task.Run(() =>
                     {
                         Room r = new Room { Name = entryNombre.Text };
-                        r = db.saveRoom(r).Result;
-                        chats.Add(r);
+                     
+                        chats.Add(db.saveRoom(r).Result);
                     });
                 }
                 else
