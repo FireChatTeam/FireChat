@@ -6,11 +6,7 @@ namespace FireChat.Models
 {
     public class Room
     {
-        public Room(String name)
-        {
-            Name = name;
-        }
-
+       
         public string Name
         {
             get;

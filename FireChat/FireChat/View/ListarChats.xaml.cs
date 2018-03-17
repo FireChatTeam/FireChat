@@ -15,7 +15,7 @@ namespace FireChat.View
             chats = new ObservableCollection<Room>();
             for(int i = 0; i < 5; i++)
             {
-                chats.Add(new Room("Chat " + (i + 1)));
+                chats.Add(new Room { Name = "Chat " + (i + 1) });
             }
 			InitializeComponent ();
             lstView.ItemsSource = chats;
