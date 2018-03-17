@@ -10,8 +10,6 @@ namespace FireChat.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListarChats : ContentPage
     {
-        private ListView listViewRoom;
-        private int index;
         public ObservableCollection<Room> chats { get; set; }
         public ListarChats()
         {
@@ -21,7 +19,6 @@ namespace FireChat.View
                 chats.Add(new Room { Name = "Chat " + (i + 1) });
             }
             InitializeComponent();
-            listViewRoom = lstView;
             lstView.ItemsSource = chats;
 
         }
@@ -31,7 +28,7 @@ namespace FireChat.View
             {
                 return;
             }
-            DisplayAlert("Item Selected", ((Room) e.SelectedItem).Name, "Ok");
+            DisplayAlert("Item Selected", ((Room)e.SelectedItem).Name, "Ok");
         }
     }
 }
