@@ -42,7 +42,8 @@ namespace FireChat.View
             {
                 return;
             }
-            DisplayAlert("Item Selected", ((Room)e.SelectedItem).Name, "Ok");
+            //DisplayAlert("Item Selected", ((Room)e.SelectedItem).Name, "Ok");
+            Navigation.PushModalAsync(new Chat(((Room)e.SelectedItem).Key));
         }
 
         private void actualizarChats()

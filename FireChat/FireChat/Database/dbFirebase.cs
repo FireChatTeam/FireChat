@@ -15,6 +15,7 @@ namespace FireChat.Database
     {
         public static readonly String URL = "https://chat-xamarin.firebaseio.com/";
         public static readonly String CHATS = "ChatApp";
+        public static readonly String MESSAGE = "Message";
          FirebaseClient fbClient;
 
         public dbFirebase()
@@ -50,6 +51,27 @@ namespace FireChat.Database
                 }
             }
             return null;
+        }
+
+        public async Task<List<Message>> getMessageList(string _room)
+        {
+
+            var list = await fbClient.Child(CHATS + "/" + _room + "/" + MESSAGE).OnceAsync<Message>();
+            List<Message> listRooms = new List<Message>();
+            List<FirebaseObject<Message>> li = list.ToList();
+            foreach (var i in li)
+            {
+                Message r = i.Object;
+                listRooms.Add(i.Object);
+            }
+            return listRooms;
+
+        }
+
+        public async Task saveMessage(Message _ch, string _room)
+        {
+            await fbClient.Child(CHATS + "/" + _room + "/" + MESSAGE)
+                    .PostAsync(_ch);
         }
 
     }

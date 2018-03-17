@@ -1,4 +1,5 @@
-﻿using FireChat.Models;
+﻿using FireChat.Database;
+using FireChat.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,24 +15,49 @@ namespace FireChat.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Chat : ContentPage
 	{
-        ObservableCollection<Mensaje> mensajeList = new ObservableCollection<Mensaje>();
-        public Chat ()
+        private ObservableCollection<Message> mensajeList;
+        private dbFirebase db = new dbFirebase();
+        private List<Message> list = new List<Message>();
+        private string currentRoomKey;
+
+
+        public Chat (string roomkey)
 		{
 			InitializeComponent ();
 
+            currentRoomKey = roomkey;
+
+            mensajeList = new ObservableCollection<Message>();
             _lstChat.ItemsSource = mensajeList;
 
-            Mensaje m1 = new Mensaje();
-            Mensaje m2 = new Mensaje();
-
-            m1.UserName = "Miguel Puertas";
-            m1.UserMessage = "No me gusta Xamarin gente :(";
-
-            m2.UserName = "Miguel Paramos";
-            m2.UserMessage = "Poooos te aguantas!";
-
-            mensajeList.Add(m1);
-            mensajeList.Add(m2);
+            actualizarMensajes();
         }
-	}
+
+        private void actualizarMensajes()
+        {
+            Task.Run(() =>
+            {
+                list = db.getMessageList(currentRoomKey).Result;
+                mensajeList.Clear();
+                foreach (Message m in list)
+                {
+                    mensajeList.Add(m);
+                }
+            });
+        }
+
+        public void OnTap(Object sender, EventArgs args)
+        {
+            Message m = new Message();
+            m.UserName = "CENEC";
+            m.UserMessage = _etMessage.Text;
+            _etMessage.Text = "";
+            Task.Run(async () =>
+            {
+                await db.saveMessage(m, currentRoomKey);
+                actualizarMensajes();
+            });
+
+        }
+    }
 }

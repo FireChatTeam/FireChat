@@ -33,10 +33,11 @@
                    Source="send.png"
                    Grid.Column="1"
                        HeightRequest="40"
-                       WidthRequest="40">
+                       WidthRequest="40"
+                       >
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer
-                                Command="{Binding SendCommand}" />
+                                Tapped="OnTap" />
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
