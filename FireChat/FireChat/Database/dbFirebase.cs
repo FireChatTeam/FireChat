@@ -1,0 +1,46 @@
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using FireChat.Models;
+using FireChat.View;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FireChat.Database
+{
+    class dbFirebase
+    {
+        public static readonly String URL = "https://chat-xamarin.firebaseio.com/";
+        public static readonly String CHATS = "ChatApp";
+         FirebaseClient fbClient;
+
+        public dbFirebase()
+        {
+            fbClient = new FirebaseClient(URL);
+        }
+
+        public async Task<List<Room>> getRoomList()
+        {
+
+            var list = await fbClient.Child(CHATS).OnceAsync<Room>();
+            List<Room> listRooms = new List<Room>();
+            List<FirebaseObject< Room>> li= list.ToList();
+            foreach(var i in li)
+            {
+                listRooms.Add((Room)i.Object);
+            }
+            return listRooms;
+        }
+
+        public async Task saveRoom(Room rm)
+        {
+            await fbClient.Child(CHATS)
+                    .PostAsync(rm);
+
+        }
+
+    }
+}

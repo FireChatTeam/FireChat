@@ -2,17 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FireChat.View.ListarChats">
+
     <ContentPage.Content>
-        <ListView  x:Name="lstView" RowHeight="60" ItemSelected="OnSelection">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="10">
-                            <Label Text = "{Binding Name}" FontSize="24" AbsoluteLayout.LayoutBounds="0.25, 0.25, 40, 40"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout>
+            <Button x:Name="buttonCrearChat" Text="Crear chat" Clicked="nuevoChat" IsVisible="true" ></Button>
+
+            <ListView  x:Name="lstView" RowHeight="60" ItemSelected="OnSelection">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="10">
+                                <Label Text = "{Binding Name}" FontSize="24" AbsoluteLayout.LayoutBounds="0.25, 0.25, 40, 40"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
