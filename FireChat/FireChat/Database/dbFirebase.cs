@@ -37,11 +37,19 @@ namespace FireChat.Database
             return listRooms;
         }
 
-        public async Task saveRoom(Room rm)
+        public async Task<Room> saveRoom(Room rm)
         {
             await fbClient.Child(CHATS)
                     .PostAsync(rm);
-
+            List<Room> lista = getRoomList().Result;
+            foreach(Room room in lista)
+            {
+                if (room.Name.Equals(rm.Name))
+                {
+                    return room;
+                }
+            }
+            return null;
         }
 
     }

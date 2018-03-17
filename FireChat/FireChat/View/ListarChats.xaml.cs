@@ -11,6 +11,7 @@ namespace FireChat.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListarChats : ContentPage
     {
+        private static readonly string CREAR_CHAT = "CREAR NUEVA SALA", GUARDAR = "GUARDAR O CERRAR";
         private ObservableCollection<Room> chats { get; set; }
         private dbFirebase db = new dbFirebase();
         private Room rm = new Room();
@@ -21,11 +22,19 @@ namespace FireChat.View
             InitializeComponent();
             chats = new ObservableCollection<Room>();
             lstView.ItemsSource = chats;
-
             actualizarChats();
-
         }
 
+        private void modificado()
+        {
+            cargando(false);
+        }
+
+        private void cargando(bool isLoad)
+        {
+            activityIndicator.IsVisible = isLoad;
+            lstView.IsVisible = !isLoad;
+        }
 
         private void OnSelection(object sender, SelectedItemChangedEventArgs e)
         {
@@ -40,28 +49,46 @@ namespace FireChat.View
         {
             Task.Run(() =>
             {
-                //activityIndicator.IsVisible = true;
-               /// lstView.IsVisible = false;
-               
                 list = db.getRoomList().Result;
                 chats.Clear();
                 foreach (Room r in list)
                 {
                     chats.Add(r);
                 }
-                //activityIndicator.IsVisible = false;
-                //lstView.IsVisible = true;
             });
         }
 
         private void nuevoChat()
         {
-            Task.Run(async () =>
+
+            if (!string.IsNullOrWhiteSpace(entryNombre.Text))
             {
-                Room r = new Room { Name = "Chat prueba en FB" };
-                await db.saveRoom(r);
-                actualizarChats();
-            });
+                bool continene = false;
+                foreach (var ro in chats)
+                {
+                    continene = continene || ro.Name.Equals(entryNombre.Text);
+                }
+                if (!continene)
+                {
+                    activityIndicator.IsVisible = true;
+                    lstView.IsVisible = false;
+                    Task.Run(() =>
+                    {
+                        Room r = new Room { Name = entryNombre.Text };
+                        r = db.saveRoom(r).Result;
+                        chats.Add(r);
+                    });
+                }
+                else
+                {
+                    DisplayAlert("ERROR","Ya existe una sala con un nombre igual", "Ok");
+                }
+                entryNombre.Text = "";
+            }
+
+            entryNombre.IsVisible = !entryNombre.IsVisible;
+            labelNombre.IsVisible = entryNombre.IsVisible;
+            buttonCrearChat.Text = (entryNombre.IsVisible) ? GUARDAR : CREAR_CHAT;
         }
     }
 }
