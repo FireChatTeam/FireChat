@@ -20,10 +20,12 @@
                    Margin="16, 16, 0, 0"/>
 
             <Editor
+                x:Name="txtName" 
                 Text="Introduce tu nombre aquí"
                 TextColor="#000"
                 BackgroundColor="#CCC"
                 Margin="16, 0, 16, 0"
+                Focused="OnNameTouched"
                 />
 
             <Label Text="Correo"
@@ -32,10 +34,12 @@
                    Margin="16, 16, 0, 0"/>
 
             <Editor
-                Text="Introduce tu nombre aquí"
+                x:Name="txtMail" 
+                Text="Introduce tu correo aquí"
                 TextColor="#000"
                 BackgroundColor="#CCC"
                 Margin="16, 0, 16, 0"
+                Focused="OnMailTouched"
                 />
 
             <Label Text="Contraseña"
@@ -44,10 +48,12 @@
                     Margin="16, 16, 16, 0"/>
 
             <Editor
+                x:Name="txtPassword1" 
                 Text="Introduce tu contraseña aquí"
                 TextColor="#000"
                 BackgroundColor="#CCC"
-                Margin="16, 0, 16, 0"/>
+                Margin="16, 0, 16, 0"
+                Focused="OnPasswordTouched1"/>
 
             <Label Text="Repite contraseña"
                    TextColor="#000"
@@ -55,12 +61,15 @@
                     Margin="16, 16, 16, 0"/>
 
             <Editor
+                x:Name="txtPassword2" 
                 Text="Introduce tu contraseña aquí"
                 TextColor="#000"
                 BackgroundColor="#CCC"
-                Margin="16, 0, 16, 0"/>
+                Margin="16, 0, 16, 0"
+                Focused="OnPasswordTouched2"/>
 
             <Button
+                Clicked="OnRegisterTouched"
                 Text="Registrar"
                 VerticalOptions="FillAndExpand"
                 Margin="16, 20, 16, 20"/>
