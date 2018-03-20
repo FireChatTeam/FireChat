@@ -15,7 +15,7 @@ namespace FireChat.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Chat : ContentPage
 	{
-        private dbFirebase db = new dbFirebase();
+        private dbFirebase db = dbFirebase.getInstance();
         private string currentRoomKey;
 
 

@@ -15,7 +15,7 @@ namespace FireChat.View
     {
         private static readonly string CREAR_CHAT = "CREAR NUEVA SALA", GUARDAR = "GUARDAR O CERRAR";
         private ObservableCollection<Room> chats { get; set; }
-        private dbFirebase db = new dbFirebase();
+        private dbFirebase db = dbFirebase.getInstance();
         private Room rm = new Room();
         private List<Room> list = new List<Room>();
 

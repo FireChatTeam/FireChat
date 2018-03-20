@@ -11,16 +11,26 @@ using System.Threading.Tasks;
 
 namespace FireChat.Database
 {
-    class dbFirebase
+    public class dbFirebase
     {
         public static readonly String URL = "https://chat-xamarin.firebaseio.com/";
         public static readonly String CHATS = "ChatApp";
         public static readonly String MESSAGE = "Message";
-         FirebaseClient fbClient;
+        private static FirebaseClient fbClient;
+        private static dbFirebase instancia;
 
-        public dbFirebase()
+        private dbFirebase()
         {
             fbClient = new FirebaseClient(URL);
+        }
+
+        public static dbFirebase getInstance()
+        {
+            if (instancia == null)
+            {
+                instancia = new dbFirebase();
+            }
+            return instancia;
         }
 
         public async Task<List<Room>> getRoomList()
