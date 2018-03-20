@@ -15,9 +15,10 @@ namespace FireChat.Database
     {
         public static readonly String URL = "https://chat-xamarin.firebaseio.com/";
         public static readonly String CHATS = "ChatApp";
+        public static readonly String USERS = "Users";
         public static readonly String MESSAGE = "Message";
         private static FirebaseClient fbClient;
-        private static dbFirebase instancia;
+        private static dbFirebase instance;
 
         private dbFirebase()
         {
@@ -26,11 +27,30 @@ namespace FireChat.Database
 
         public static dbFirebase getInstance()
         {
-            if (instancia == null)
+            if (instance == null)
             {
-                instancia = new dbFirebase();
+                instance = new dbFirebase();
             }
-            return instancia;
+            return instance;
+        }
+
+        public async Task<bool> checkLogin(User user)
+        {
+            bool isRegistered = false;
+            
+            var userLists = await fbClient.Child(USERS).OnceAsync<User>();
+            foreach (var u in userLists)
+            {
+                Console.WriteLine(u.Key + " " + u.Object);
+            }
+            isRegistered = userLists.Any(u => u.Object.Name.Equals(user.Name) && u.Object.Password.Equals(user.Password));
+
+            return isRegistered;
+        }
+
+        public async void saveUser(User user)
+        {
+            await fbClient.Child(USERS).PostAsync(user);
         }
 
         public async Task<List<Room>> getRoomList()
