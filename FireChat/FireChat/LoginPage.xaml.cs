@@ -32,11 +32,12 @@ namespace FireChat
             Task.Run(() =>
             {
                 loginOK = db.checkLogin(user).Result;
+            });
                 Notification notification;
                 if (loginOK)
                 {
-                    //Navigation.PushModalAsync(new ListarChats()); no funciona
-                    notification = new Notification
+                Navigation.PushModalAsync(new ListarChats());
+                notification = new Notification
                     {
                         Title = "Login correcto",
                         Message = "Logeado como: " + user.Name,
@@ -53,7 +54,6 @@ namespace FireChat
                     };
                 }
                 CrossNotifications.Current.Send(notification);
-            });
             
         }
 
