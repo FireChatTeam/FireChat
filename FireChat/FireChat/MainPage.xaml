@@ -5,7 +5,7 @@
              x:Class="FireChat.MainPage">
     <StackLayout>
 
-	<Label Text="Welcome to Xamarin.Forms!" 
+	<Label Text="Elige una opción" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
         
@@ -16,18 +16,10 @@
         <Button Text="Ir a Registro" VerticalOptions="Center" 
            HorizontalOptions="Center" 
            Clicked="OnButtonClickedRegistration"/>
-        
-        <Button Text="Ir al chat!" VerticalOptions="Center" 
-           HorizontalOptions="Center" 
-           Clicked="OnButtonClicked"/>
 
         <Button Text="Ir preferencias" VerticalOptions="Center" 
            HorizontalOptions="Center" 
            Clicked="OnButtonClickedPreferencias"/>
-
-        <Button Text="Ir a listar chats" VerticalOptions="Center" 
-           HorizontalOptions="Center" 
-           Clicked="OnButtonClickedListarChats"/>
 
     </StackLayout>
 

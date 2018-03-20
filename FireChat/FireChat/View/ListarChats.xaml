@@ -8,7 +8,8 @@
             <Label x:Name="labelNombre" IsVisible="False">Introduce el nombre de la sala:</Label>
             <Entry x:Name="entryNombre" IsVisible="False"></Entry>
             <Button x:Name="buttonCrearChat" Text="Crear chat" Clicked="nuevoChat" IsVisible="true" ></Button>
-            
+            <Label x:Name="labelUserName"></Label>
+
             <ActivityIndicator x:Name="activityIndicator" IsRunning="true"/>
             <ListView  x:Name="lstView" RowHeight="60" ItemSelected="OnSelection" ItemAppearing="modificado">
                 <ListView.ItemTemplate>

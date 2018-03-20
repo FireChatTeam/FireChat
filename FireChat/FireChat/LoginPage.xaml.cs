@@ -13,16 +13,16 @@ using Plugin.Notifications;
 
 namespace FireChat
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : ContentPage
+    {
         private dbFirebase db = dbFirebase.getInstance();
 
-        public LoginPage ()
-		{
-			InitializeComponent ();
-          
-		}
+        public LoginPage()
+        {
+            InitializeComponent();
+
+        }
 
         void OnLoginTouched(object sender, EventArgs e)
         {
@@ -32,19 +32,18 @@ namespace FireChat
             Task t = Task.Run(() =>
             {
                 loginOK = db.checkLogin(user).Result;
-            });
                 Notification notification;
                 if (loginOK)
                 {
-                Navigation.PushModalAsync(new ListarChats());
-                notification = new Notification
+                    notification = new Notification
                     {
                         Title = "Login correcto",
                         Message = "Logeado como: " + user.Name,
                         Vibrate = Preferencias.getVibracion()
                     };
 
-                } else
+                }
+                else
                 {
                     notification = new Notification
                     {
@@ -54,13 +53,14 @@ namespace FireChat
                     };
                 }
                 CrossNotifications.Current.Send(notification);
-                while (!t.IsCompleted)
+            });
+            while (!t.IsCompleted)
+            {
+                if (loginOK)
                 {
-                    if (loginOK)
-                    {
-                        Navigation.PushModalAsync(new ListarChats());
-                    }
+                    Navigation.PushModalAsync(new ListarChats(user));
                 }
+            }
         }
 
         void OnNameTouched(object sender, EventArgs e)

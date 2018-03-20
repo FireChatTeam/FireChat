@@ -14,14 +14,18 @@ namespace FireChat.View
     public partial class ListarChats : ContentPage
     {
         private static readonly string CREAR_CHAT = "CREAR NUEVA SALA", GUARDAR = "GUARDAR O CERRAR";
+        private static readonly string TEXTO_USER = "Logeado como: ";
         private ObservableCollection<Room> chats { get; set; }
         private dbFirebase db = dbFirebase.getInstance();
         private Room rm = new Room();
         private List<Room> list = new List<Room>();
+        private User actualUser;
 
-        public ListarChats()
+        public ListarChats(User user)
         {
             InitializeComponent();
+            actualUser = user;
+            labelUserName.Text = TEXTO_USER + actualUser.Name;
             chats = new ObservableCollection<Room>();
             lstView.ItemsSource = chats;
             actualizarChats();
@@ -45,7 +49,7 @@ namespace FireChat.View
                 return;
             }
             //DisplayAlert("Item Selected", ((Room)e.SelectedItem).Name, "Ok");
-            Navigation.PushModalAsync(new Chat(((Room)e.SelectedItem).Key));
+            Navigation.PushModalAsync(new Chat(((Room)e.SelectedItem).Key, actualUser));
         }
 
         private void actualizarChats()

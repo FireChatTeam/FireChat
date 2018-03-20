@@ -17,12 +17,12 @@ namespace FireChat.View
 	{
         private dbFirebase db = dbFirebase.getInstance();
         private string currentRoomKey;
+        private User actualUser;
 
-
-        public Chat (string roomkey)
+        public Chat (string roomkey, User actualUser)
 		{
 			InitializeComponent ();
-
+            this.actualUser = actualUser;
             currentRoomKey = roomkey;
 
             _lstChat.ItemsSource = db.subChat(roomkey);
@@ -31,7 +31,7 @@ namespace FireChat.View
         public void OnTap(Object sender, EventArgs args)
         {
             Message m = new Message();
-            m.UserName = "CENEC";
+            m.UserName = actualUser.Name;
             m.UserMessage = _etMessage.Text;
             _etMessage.Text = "";
             Task.Run(async () =>
