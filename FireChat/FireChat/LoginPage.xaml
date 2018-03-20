@@ -26,10 +26,12 @@
                    Margin="16, 20, 0, 0"/>
 
             <Editor
+                x:Name="txtName" 
                 Text="Introduce tu nombre aquí"
                 TextColor="#000"
                 BackgroundColor="#CCC"
                 Margin="16, 0, 16, 0"
+                Focused="OnNameTouched"
                 />
 
             <Label Text="Contraseña"
@@ -38,10 +40,12 @@
                     Margin="16, 20, 16, 0"/>
 
             <Editor
+                x:Name="txtPassword" 
                 Text="Introduce tu contraseña aquí"
                 TextColor="#000"
                 BackgroundColor="#CCC"
-                Margin="16, 0, 16, 0"/>
+                Margin="16, 0, 16, 0"
+                Focused="OnPasswordTouched"/>
 
             <Label Text="¿Has olvidado la contraseña?"
                    TextColor="#444"
@@ -51,6 +55,7 @@
             <Button
                 Text="Entrar"
                 VerticalOptions="FillAndExpand"
+                Clicked="OnLoginTouched"
                 Margin="16, 20, 16, 20"/>
         </StackLayout>
     </ContentPage.Content>
