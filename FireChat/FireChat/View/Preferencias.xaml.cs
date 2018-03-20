@@ -79,6 +79,39 @@ namespace FireChat
             }
         }
 
+        private static Boolean getPref(string pref)
+        {
+            if (Application.Current.Properties.ContainsKey(pref))
+            {
+                Application.Current.Properties.TryGetValue(pref, out Object valor);
+                return (Boolean)valor;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public static Boolean getVibracion()
+        {
+            return getPref(VIBRACION);
+        }
+
+        public static Boolean getSonido()
+        {
+            return getPref(SONIDO);
+        }
+
+        public static Boolean getNotificacionesEmergentes()
+        {
+            return getPref(NOTIFICACIONES_EMERGENTES);
+        }
+
+        public static Boolean getNotificacionesPantallaInicio()
+        {
+            return getPref(NOTIFICACINOES_PANTALLA_INICIO);
+        }
+
         private void switchVibracionChanged(object sender, ToggledEventArgs e)
         {
             Application.Current.Properties[VIBRACION] = switchVibracion.On;

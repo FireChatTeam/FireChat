@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="FirebaseDatabase.net" Version="3.3.3" />
+    <PackageReference Include="Plugin.Notifications" Version="4.0.2" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
   </ItemGroup>
 

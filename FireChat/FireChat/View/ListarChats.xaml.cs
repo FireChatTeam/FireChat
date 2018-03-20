@@ -5,6 +5,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FireChat.Database;
 using System.Threading.Tasks;
+using Plugin.Notifications;
+using System;
 
 namespace FireChat.View
 {
@@ -64,6 +66,7 @@ namespace FireChat.View
 
             if (!string.IsNullOrWhiteSpace(entryNombre.Text))
             {
+                string nombreSala = "";
                 bool continene = false;
                 foreach (var ro in chats)
                 {
@@ -73,16 +76,23 @@ namespace FireChat.View
                 {
                     activityIndicator.IsVisible = true;
                     lstView.IsVisible = false;
-                    Task.Run(() =>
+                    nombreSala = entryNombre.Text;
+                    Task.Run(async () =>
                     {
-                        Room r = new Room { Name = entryNombre.Text };
-                     
+                        Room r = new Room { Name = nombreSala };
                         chats.Add(db.saveRoom(r).Result);
+
+                        if (Preferencias.getNotificacionesEmergentes())
+                        {
+                            Notification notification = new Notification { Title = "CHAT", Message = "Sala "+nombreSala+" creada con exito", Vibrate = Preferencias.getVibracion() };
+                            await CrossNotifications.Current.Send(notification);
+                        }
+                        nombreSala = "";
                     });
                 }
                 else
                 {
-                    DisplayAlert("ERROR","Ya existe una sala con un nombre igual", "Ok");
+                    DisplayAlert("ERROR", "Ya existe una sala con un nombre igual", "Ok");
                 }
                 entryNombre.Text = "";
             }
