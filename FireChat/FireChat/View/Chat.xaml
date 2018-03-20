@@ -10,8 +10,9 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
+            <ActivityIndicator x:Name="activityIndicatorChat" IsRunning="true"/>
             <ListView Grid.Row="0" ItemsSource="{Binding .}" x:Name="_lstChat"
-				SeparatorVisibility="None" Margin="2">
+				SeparatorVisibility="None" Margin="2" ItemAppearing="DesactivarIndicadorCarga">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 

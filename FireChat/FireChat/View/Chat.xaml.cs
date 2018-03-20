@@ -40,5 +40,10 @@ namespace FireChat.View
             });
 
         }
+
+        private void DesactivarIndicadorCarga()
+        {
+            activityIndicatorChat.IsVisible = false;
+        }
     }
 }
