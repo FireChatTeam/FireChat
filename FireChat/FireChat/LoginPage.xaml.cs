@@ -29,7 +29,7 @@ namespace FireChat
             User user = new User(txtName.Text, txtPassword.Text, "correo@correo.es");
             bool loginOK = false;
 
-            Task.Run(() =>
+            Task t = Task.Run(() =>
             {
                 loginOK = db.checkLogin(user).Result;
             });
@@ -54,7 +54,13 @@ namespace FireChat
                     };
                 }
                 CrossNotifications.Current.Send(notification);
-            
+                while (!t.IsCompleted)
+                {
+                    if (loginOK)
+                    {
+                        Navigation.PushModalAsync(new ListarChats());
+                    }
+                }
         }
 
         void OnNameTouched(object sender, EventArgs e)
